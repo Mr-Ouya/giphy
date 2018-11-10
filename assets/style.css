@@ -1,0 +1,14 @@
+h1 {
+    background-color: aqua;
+    font-family: fantasy;
+    font-size: 60px;
+}
+.btn {
+    border-radius: 50%;
+    background-color: red;
+    color:yellow;
+}
+
+#movies {
+    float:left;
+}

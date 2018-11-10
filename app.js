@@ -2,15 +2,16 @@ $(document).ready(function () {
 	var movies = ["Godfather", "Superbad", "21 Jump Street", "Goodfellas", "Wolf of Wall Street", "Night of The Living Dead", "Cloudy With a Chance of Meatballs", "Megamind"];
 
 	function renderButtons() {
-		$("#movie-buttons").empty();
+
+		$("#buttons").empty();
 		for (i = 0; i < movies.length; i++) {
-			$("#movie-buttons").append("<button class='btn' data-movie='" + movies[i] + "'>" + movies[i] + "</button>");
+			$("#buttons").append("<button class='btn topButtons' data-movie='" + movies[i] + "'>" + movies[i] + "</button>");
 		}
 	}
 
 	renderButtons();
 
-	$("button").on("click", function () {
+	$(document).on('click', '.topButtons', function(event) {
 		var movie = $(this).attr("data-movie");
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
 			movie + "&api_key=3mg0E7MTsAXi1hoPy1fsbY59YUHs002I&limit=10"
@@ -31,9 +32,10 @@ $(document).ready(function () {
 				movieImg.attr("data-animate", results[i].images.original.url);
 				movieImg.attr("data-state", "still");
 				movieImg.attr("class", "gif");
-				movieDiv.append(p);
+                $("#movies").append(movieDiv);
+                movieDiv.append(p);
 				movieDiv.append(movieImg);
-				$("#movies").append(movieDiv);
+				
 			}
 		});
 	});
@@ -42,10 +44,11 @@ $(document).ready(function () {
         
         event.preventDefault();
         
-
+/*Potentially not returning new movie as string and breaking functionality?*/
       var newMovie = $("#yourMovie").val();
       movies.push(newMovie);
       renderButtons();
+      console.log(newMovie.type)
 
     });
 
