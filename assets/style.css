@@ -5,10 +5,15 @@ h1 {
 }
 .btn {
     border-radius: 50%;
-    background-color: red;
-    color:yellow;
+    background-color: lightblue;
+    color:silver;
+    opacity: 20%;
 }
 
 #movies {
     float:left;
+}
+.container {
+    padding:5px;
+    border:0px;
 }
